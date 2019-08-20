@@ -1,0 +1,33 @@
+.first-step-modal {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.first-step-input {
+  height: 50px;
+  margin: 120px 10px
+}
+
+.v-mark {
+  display: flex;
+  margin: auto 0 auto 450px
+}
+
+.line-marigin{
+	margin: 80px
+
+}
+
+.first-in-row {
+    margin-right: 50px
+}
+
+.add-question-button {
+	margin-top: 30px
+}
