@@ -10,12 +10,12 @@ const  ErrorMsg = () =>  (
                            </span>
                            </div>);
 
- export default function FirstStep({testHeader, setTestHeader, setIsFirstStepOpen, testImage, setTestImage}) {
+ export default function FirstStepModal({testHeader, setTestHeader, setIsFirstStepOpen, testImage, setTestImage}) {
+ 
   const [tempHeader, serTempHeader] = useState('');
-  const [isHeaderSet, setIsHeaderSet] = useState();
   const [isErrorOpen, setIsErrorOpen] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
       if (testHeader) {
         console.log(testImage)
      const fileSelect = document.getElementById("fileSelect");
@@ -57,7 +57,7 @@ const  ErrorMsg = () =>  (
   }
 
   return (
-           <div className="first-step-modal">
+          <div className="first-step-modal">
            <article className="mw15 center bg-blue br3 pa3 pa4-ns ma2 dib bw2 shadow-5">
               { !testHeader ?   
               <div className= "txt-center">   
@@ -92,5 +92,5 @@ const  ErrorMsg = () =>  (
             </div>
           }
          </article>
-         </div>)  
+        </div>)  
 }
