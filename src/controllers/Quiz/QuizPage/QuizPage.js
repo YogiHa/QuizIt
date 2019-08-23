@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import socketIOClient from 'socket.io-client';
-import Answers from './Answers';
+import Answers from '../Answers/Answers';
 
 let i = 0;
 
@@ -11,7 +11,6 @@ export default function QuizPage({ location }) {
   );
 
   const handleClick = () => {
-    console.log(currentQuestion.correct);
     if (i < location.state[0].quiz.content.length - 1) {
       i++;
       socket.emit('next question', location.state[0].quiz.content[i]);

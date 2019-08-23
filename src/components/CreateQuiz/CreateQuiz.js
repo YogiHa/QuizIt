@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../store/actions/quizActions';
-import AddQuestion from './AddQuestion';
+import AddQuestion from './AddQuestion/AddQuestion';
 import Modal from '../Modal/Modal';
-import FirstStepModal from './FirstStepModal';
+import FirstStepModal from './FirstStepModal/FirstStepModal';
 
 export default function CreateQuiz({ setIsOpen }) {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import FileUploader from "react-firebase-file-uploader";
-import './CreateQuiz.css';
-import firebase from '../../config/FBConfig.js';
+import '../CreateQuiz.css';
+import firebase from '../../../config/FBConfig.js';
 
 const  ErrorMsg = () =>  (
                           <div className="err-msg">
@@ -10,7 +10,7 @@ const  ErrorMsg = () =>  (
                            </span>
                            </div>);
 
- export default function FirstStepModal({testHeader, setTestHeader, setIsFirstStepOpen, testImage, setTestImage}) {
+ export default function FirstStepModal({testHeader, setTestHeader, setIsFirstStepModalOpen, testImage, setTestImage}) {
  
   const [tempHeader, serTempHeader] = useState('');
   const [isErrorOpen, setIsErrorOpen] = useState(false);
@@ -53,7 +53,7 @@ const  ErrorMsg = () =>  (
   }
 
   const handleSubmit = () => {
-        setIsFirstStepOpen(false)
+        setIsFirstStepModalOpen(false)
   }
 
   return (
@@ -69,7 +69,7 @@ const  ErrorMsg = () =>  (
                 For beginning in creation of your own quiz, add here your quiz title
                </p>
                { isErrorOpen &&  <ErrorMsg /> } 
-               <img className="cursor-pointer br-100 ba h3 w3 dib v-mark" src={require('./next.svg')} alt="next" onClick={handleNext} />
+               <img className="cursor-pointer br-100 ba h3 w3 dib v-mark" src={require('../next.svg')} alt="next" onClick={handleNext} />
              </div>
              :
              <div>
@@ -88,7 +88,7 @@ const  ErrorMsg = () =>  (
                  Add your own test logo (optional)
                  </p>
               </div>
-             <img className="cursor-pointer br-100 ba h3 w3 dib v-mark" src={require('./v.jpg')} alt="V" onClick={handleSubmit} />
+             <img className="cursor-pointer br-100 ba h3 w3 dib v-mark" src={require('../v.jpg')} alt="V" onClick={handleSubmit} />
             </div>
           }
          </article>

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Modal from '../../components/Modal/Modal';
-import BeginQuizModal from './BeginQuizModal';
-import QuizPage from './QuizPage';
+import BeginQuizModal from './BeginQuizModal/BeginQuizModal';
+import QuizPage from './QuizPage/QuizPage';
 import './Quiz.css';
 
 export default function Quiz(props) {

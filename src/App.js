@@ -4,12 +4,11 @@ import Header from './components/Header/Header';
 import CreateQuiz from './components/CreateQuiz/CreateQuiz';
 import QuizGallery from './components/QuizGallery/QuizGallery';
 import Footer from './components/Footer/Footer';
-
 import './App.css';
 
 function App() {
   let data = null;
-  data = useSelector(state => state.DBQuizzes);
+  data = useSelector(state => state.quizzes);
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);

@@ -1,10 +1,9 @@
-import { loadFBReducer , currentQuizReducer} from './quizReducer';
+import { loadFBReducer, currentQuizReducer } from './quizReducer';
 import { combineReducers } from 'redux';
 
-
 const rootReducer = combineReducers({
-	DBQuizzes: loadFBReducer,
-	currentQuiz: currentQuizReducer
+  quizzes: loadFBReducer,
+  currentQuiz: currentQuizReducer
 });
 
-export default rootReducer
+export default rootReducer;

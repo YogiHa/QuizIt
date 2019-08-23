@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function BeginQuizModel({ match, setIsReady, data }) {
+export default function BeginQuizModal({ match, setIsReady, data }) {
   const [quiz, setQUiz] = useState(null);
 
   useEffect(() => {
-    if (data.DBQuizzes) {
-      let pendingQuiz = data.DBQuizzes.filter(
+    if (data.quizzes) {
+      let pendingQuiz = data.quizzes.filter(
         quiz => quiz.id === data.currentQuiz
       );
       setQUiz(pendingQuiz);
