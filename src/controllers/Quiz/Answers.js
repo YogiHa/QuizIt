@@ -4,7 +4,6 @@ export default function Answers({ answers, correct }) {
   let i = 0;
 
   const handleClick = e => {
-    console.log(correct, 'correct', e.target.value, 'e');
     if (e.target.value === correct) {
       console.log('wohoooo');
     } else {
