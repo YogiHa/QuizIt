@@ -13,6 +13,8 @@ for running on your local-machine -
       open firebase console, register a new web-app ("spark" plan is totally free! :) ) and copy the credentials, its should look something like that:
 
       {
+      
+      
         var firebaseConfig = {
            apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
            authDomain: "quizit.firebaseapp.com",
@@ -22,6 +24,8 @@ for running on your local-machine -
            messagingSenderId: "1234567890",
            appId: "1:123456789:web:not123to456be"
            };
+           
+           
       } 
 
       default fire-store bucket that used for saving imgs (quizzes logos and inside questions photos) not always clarify, if adding "storeageBucket" value manually isnt solve your problem, check:
