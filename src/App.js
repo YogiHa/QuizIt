@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />
+      <Header isLogedIn={isLogedIn} />
 
       {isLoaded && (
         <div className="flex">

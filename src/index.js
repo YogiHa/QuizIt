@@ -19,6 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import SignIn from './components/forms/SignIn';
 import Register from './components/forms/Register';
+import CreateQuiz from './components/CreateQuiz/CreateQuiz';
 import Quiz from './controllers/Quiz/Quiz';
 
 import * as serviceWorker from './serviceWorker';
@@ -52,6 +53,11 @@ const ROUTER = (
             exact
             path={process.env.PUBLIC_URL + '/register'}
             component={Register}
+          />
+          <Route
+            exact
+            path={process.env.PUBLIC_URL + '/createquiz'}
+            component={CreateQuiz}
           />
           <Route path={process.env.PUBLIC_URL + '/quiz'} component={Quiz} />
         </Switch>

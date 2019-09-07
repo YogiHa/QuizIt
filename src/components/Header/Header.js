@@ -16,7 +16,7 @@ import {
 } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 
-export default function Header({ isLogedIn, setIsLogedIn }) {
+export default function Header({ isLogedIn }) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,7 +35,20 @@ export default function Header({ isLogedIn, setIsLogedIn }) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             {isLogedIn ? (
-              <NavLink onClick={handleClick}> Sign Out </NavLink>
+              <div>
+                <NavItem>
+                  <NavLink
+                    tag={RRNavLink}
+                    exact
+                    to={process.env.PUBLIC_URL + '/createquiz'}
+                  >
+                    Create New Quiz
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink onClick={handleClick}> Sign Out </NavLink>
+                </NavItem>
+              </div>
             ) : (
               <div>
                 <NavItem>
