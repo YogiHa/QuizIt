@@ -23,12 +23,11 @@ export default function Quiz(props) {
         />
       ) : (
         <Modal>
-          {' '}
           <BeginQuizModal
             match={props.match}
             setIsReady={setIsReady}
             data={data}
-          />{' '}
+          />
         </Modal>
       )}
     </div>

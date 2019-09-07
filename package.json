@@ -3,31 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "firebase": "^6.3.4",
     "husky": "^3.0.4",
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-firebase-file-uploader": "^2.4.2",
     "react-redux": "^7.1.0",
+    "react-redux-firebase": "^2.4.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
     "redux-firestore": "^0.8.0",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.2.0"
   },
-   "lint-staged": {
-     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-       "prettier --single-quote --write",
-       "git add"
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
     ],
-     "server/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-       "prettier --single-quote --write",
-       "git add"
+    "server/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
     ]
-
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,9 +52,9 @@
       "last 1 safari version"
     ]
   },
-    "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

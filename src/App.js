@@ -7,38 +7,30 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
-  let data = null;
-  data = useSelector(state => state.quizzes);
-
+  const [isLogedIn, setIsLogedIn] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+
+  let data = null;
+  data = useSelector(state => state);
 
   useEffect(() => {
-    if (data) {
+    if (data.quizzes) {
       setIsLoaded(true);
+    }
+    if (data.firebase.auth.uid) {
+      setIsLogedIn(true);
+    } else {
+      setIsLogedIn(false);
     }
   }, [data]);
 
   return (
     <div className="App">
-      <Header />
-      {isOpen ? (
-        <CreateQuiz setIsLoaded={setIsLoaded} setIsOpen={setIsOpen} />
-      ) : (
-        <button
-          onClick={e => {
-            e.preventDefault();
-            setIsLoaded(false);
-            setIsOpen(true);
-          }}
-        >
-          {' '}
-          create new quiz{' '}
-        </button>
-      )}
+      <Header isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />
+
       {isLoaded && (
         <div className="flex">
-          {data.map(q => (
+          {data.quizzes.map(q => (
             <QuizGallery
               logo={q.quiz.logo}
               header={q.quiz.header}
@@ -48,6 +40,7 @@ function App() {
           ))}
         </div>
       )}
+
       <Footer />
     </div>
   );

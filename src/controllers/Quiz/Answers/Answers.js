@@ -23,8 +23,7 @@ export default function Answers({ answers, correct }) {
               handleClick(e);
             }}
           >
-            {' '}
-            {answer}{' '}
+            {answer}
           </button>
         );
       })}

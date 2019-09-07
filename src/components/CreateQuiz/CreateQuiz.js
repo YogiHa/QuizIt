@@ -19,9 +19,7 @@ export default function CreateQuiz({ setIsOpen }) {
     if (newTest) {
       dispatch(createQuiz(newTest));
       setIsOpen(false);
-      // setNewTest(null)
     }
-    // return () => window.location.reload()
   }, [newTest]);
 
   const handleSubmit = () => {
