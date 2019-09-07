@@ -16,13 +16,21 @@ for running on your local-machine -
       
       
         var firebaseConfig = {
+        
            apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+           
            authDomain: "quizit.firebaseapp.com",
+           
            databaseURL: "https://quizit.firebaseio.com",
+           
            projectId: "quizit",
+           
            storageBucket: "quizit.appspot.com",
+           
            messagingSenderId: "1234567890",
+           
            appId: "1:123456789:web:not123to456be"
+           
            };
            
            
@@ -33,16 +41,21 @@ for running on your local-machine -
       https://stackoverflow.com/questions/41352150/typeerror-firebase-storage-is-not-a-function
 
 
-   3. {
+   3.
+   
+     
+     {
        $ cd quizit/server
 
        $ npm install
 
        $ npm start
       }
-
+      
 
     4. on new terminal
+    
+    
        {
        	$ cd quizit
 
