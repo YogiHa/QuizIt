@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Answers({ answers, correct }) {
+export default function Answers({ answers, correct, socektTrigger }) {
   let i = 0;
 
   const handleClick = e => {
@@ -9,6 +9,7 @@ export default function Answers({ answers, correct }) {
     } else {
       console.log('too bad');
     }
+    socektTrigger();
   };
   return (
     <div>

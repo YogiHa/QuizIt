@@ -40,7 +40,8 @@ export const register = newUser => {
           .collection('users')
           .doc(resp.user.uid)
           .set({
-            name: newUser.name,
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
             email: newUser.email
           });
       })

@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { register } from '../../store/actions/authActions';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import './Forms.css';
 
 const Loading = () => (
@@ -10,19 +22,32 @@ const Loading = () => (
   </div>
 );
 
-function Register() {
+const Copyright = () => {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        QuizIt
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+};
+
+function Register({ setIsFormModalOpen }) {
   const uid = useSelector(state => state.firebase.auth.uid);
   const MsgError = useSelector(state => state.auth.authError);
   const dispatch = useDispatch();
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [isHide, setIsHide] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (MsgError) {
-      console.log(MsgError);
       setIsLoading(false);
       setIsHide(false);
     }
@@ -32,88 +57,154 @@ function Register() {
     setRegisterEmail(event.target.value);
   };
 
-  const onNameChange = event => {
-    setName(event.target.value);
+  const onFirstNameChange = event => {
+    setFirstName(event.target.value);
   };
 
+  const onLastNameChange = event => {
+    setLastName(event.target.value);
+  };
   const onPasswordChange = event => {
     setRegisterPassword(event.target.value);
   };
 
-  const onSubmitRegister = () => {
+  const onSubmitRegister = event => {
+    event.preventDefault();
     setIsLoading(true);
     setIsHide(true);
     dispatch(
-      register({ email: registerEmail, password: registerPassword, name: name })
+      register({
+        email: registerEmail,
+        password: registerPassword,
+        firstName: firstName,
+        lastName: lastName
+      })
     );
   };
-  if (uid) return <Redirect to="/" />;
+
+  const useStyles = makeStyles(theme => ({
+    '@global': {
+      body: {
+        backgroundColor: theme.palette.common.white
+      }
+    },
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main
+    },
+    form: {
+      width: '100%',
+      marginTop: theme.spacing(3)
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2)
+    }
+  }));
+
+  const classes = useStyles();
+
+  if (uid) {
+    setIsFormModalOpen('none');
+  }
   return (
-    <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-      <main className="pa4 black-80">
-        <div className="measure">
-          <form
-            autoComplete="off"
-            id="sign_up"
-            className="ba b--transparent ph0 mh0"
-          >
-            <h3 className="f1 fw6 ph0 mh0">Register</h3>
-            <div className="mt3">
-              <label className="db fw6 lh-copy f6" htmlFor="name">
-                Name
-              </label>
-              <input
-                aria-label="type name here"
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black"
-                type="text"
-                name="name"
-                id="name"
-                onChange={onNameChange}
-              />
+    <div className="my-center">
+      <Card className={classes.card} style={{ background: '#2E3B55' }}>
+        <CardContent>
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+              <Typography component="h1" variant="h5">
+                Register
+              </Typography>
+              <form className={classes.form} noValidate>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      autoComplete="fname"
+                      name="firstName"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      autoFocus
+                      onChange={onFirstNameChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="lname"
+                      onChange={onLastNameChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      onChange={onEmailChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      onChange={onPasswordChange}
+                    />
+                  </Grid>
+                </Grid>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  onClick={onSubmitRegister}
+                >
+                  Register
+                </Button>
+              </form>
             </div>
-            <div className="mt3">
-              <label className="db fw6 lh-copy f6" htmlFor="email-address">
-                Email
-              </label>
-              <input
-                aria-label="type email here"
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black"
-                type="email"
-                name="email-address"
-                id="email-address"
-                onChange={onEmailChange}
-              />
-            </div>
-            <div className="mv3">
-              <label className="db fw6 lh-copy f6" htmlFor="password">
-                Password
-              </label>
-              <input
-                aria-label="type secret here"
-                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black"
-                type="password"
-                name="password"
-                id="password"
-                onChange={onPasswordChange}
-              />
-            </div>
-          </form>
-          <div className="">
-            <input
-              onClick={() => {
-                setIsHide(true);
-                onSubmitRegister();
+            {isLoading && <Loading />}
+            {!isHide && <div>{MsgError}</div>}
+            <Button
+              className={classes.xbutton}
+              onClick={event => {
+                event.preventDefault();
+                setIsFormModalOpen('none');
               }}
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-              type="submit"
-              value="Register"
-            />
-          </div>
-          {isLoading && <Loading />}
-          {!isHide && <div>{MsgError}</div>}
-        </div>
-      </main>
-    </article>
+            >
+              X
+            </Button>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+          </Container>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 

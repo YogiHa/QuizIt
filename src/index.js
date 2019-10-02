@@ -8,13 +8,12 @@ import thunk from 'redux-thunk';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 
-import FetchFB from './store/FetchFB/FetchFB';
+import FetchFB from './components/FetchFB/FetchFB';
 import FBConfig from './config/FBConfig';
 
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 import SignIn from './components/forms/SignIn';

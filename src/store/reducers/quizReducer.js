@@ -28,6 +28,7 @@ export const currentQuizReducer = (state = null, action) => {
       state = action.id;
       return state;
     case 'ID_ADDED_ERR':
+      console.log('has been error');
       state = action.err;
       return state;
     default:

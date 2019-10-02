@@ -1,20 +1,20 @@
 body {
-  background: linear-gradient(90deg, #FF8C00 0%, #8B0000 100%);
+  background: linear-gradient(90deg, #14b4b4 0%, #acdd99 100%);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 .flex {
-	display: flex
+  display: flex;
 }
 
 .my-center {
@@ -29,10 +29,9 @@ code {
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .err-msg {
-   color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
 }
-

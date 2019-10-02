@@ -1,4 +1,10 @@
 #modal-root {
-	position: relative;
-	z-index: 999;
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  top: 30%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
+  z-index: 999;
 }

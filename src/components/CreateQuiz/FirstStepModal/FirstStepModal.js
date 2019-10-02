@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FileUploader from 'react-firebase-file-uploader';
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
 import '../CreateQuiz.css';
 import firebase from '../../../config/FBConfig.js';
 
@@ -67,24 +69,22 @@ export default function FirstStepModal({
 
   return (
     <div className="first-step-modal">
-      <article className="mw15 center bg-blue br3 pa3 pa4-ns ma2 dib bw2 shadow-5">
+      <Paper>
         {!testHeader ? (
           <div className="txt-center">
-            <div className="tc center">
-              <input
-                placeholder="Add here your quiz title"
-                onChange={e => serTempHeader(e.target.value)}
-                className="first-step-input"
-              />
-              <hr className="mw3 bb bw1 b--black-10" />
-            </div>
-            <p className="lh-copy measure center f6 black-70">
+            <input
+              placeholder="Add here your quiz title"
+              onChange={e => serTempHeader(e.target.value)}
+              className="first-step-input"
+            />
+            <hr />
+            <p>
               For beginning in creation of your own quiz, add here your quiz
               title
             </p>
             {isErrorOpen && <ErrorMsg />}
-            <img
-              className="cursor-pointer br-100 ba h3 w3 dib v-mark"
+            <Avatar
+              className="cursor-pointer"
               src={require('../next.svg')}
               alt="next"
               onClick={handleNext}
@@ -111,19 +111,17 @@ export default function FirstStepModal({
                 name="avatar"
                 storageRef={firebase.storage().ref(testHeader)}
               />
-              <p className="lh-copy measure center f6 black-70">
-                Add your own test logo (optional)
-              </p>
+              <p>Add your own test logo (optional)</p>
             </div>
-            <img
-              className="cursor-pointer br-100 ba h3 w3 dib v-mark"
+            <Avatar
+              className="cursor-pointer"
               src={require('../v.jpg')}
               alt="V"
               onClick={handleSubmit}
             />
           </div>
         )}
-      </article>
+      </Paper>
     </div>
   );
 }
