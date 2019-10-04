@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../store/actions/quizActions';
 import AddQuestion from './AddQuestion/AddQuestion';
+import Header from './Header/Header';
 import Modal from '../Modal/Modal';
 import { Redirect } from 'react-router-dom';
 import FirstStepModal from './FirstStepModal/FirstStepModal';
+import { Button, Icon } from '@material-ui/core';
 
 export default function CreateQuiz() {
   const dispatch = useDispatch();
@@ -34,6 +36,7 @@ export default function CreateQuiz() {
   if (toHome) return <Redirect to="/" />;
   return (
     <div>
+      <Header setToHome={setToHome} />
       {isFirstStepModalOpen && (
         <Modal>
           <FirstStepModal
@@ -45,7 +48,9 @@ export default function CreateQuiz() {
           />
         </Modal>
       )}
-      <h1> {testHeader} </h1>
+      <div className="my-center">
+        <h1> {testHeader} </h1>
+      </div>
       <AddQuestion
         newTest={newTest}
         setNewTest={setNewTest}
@@ -55,7 +60,15 @@ export default function CreateQuiz() {
       />{' '}
       <br />
       <br />
-      <input type="submit" onClick={handleSubmit} />
+      <div className="my-center">
+        <Button
+          variant="contained"
+          style={{ background: '#2E3B55' }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
+      </div>
     </div>
   );
 }

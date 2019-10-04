@@ -1,9 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-
-import AuthDashboard from './dashboards/AuthDashboard';
-import UnAuthDashboard from './dashboards/UnAuthDashboard';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Header({ isUserLogedIn, setIsFormModalOpen }) {
+export default function Header({ setToHome }) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -26,12 +23,15 @@ export default function Header({ isUserLogedIn, setIsFormModalOpen }) {
           <Typography variant="h6" align="left" className={classes.title}>
             Quiz It
           </Typography>
-
-          {isUserLogedIn ? (
-            <AuthDashboard />
-          ) : (
-            <UnAuthDashboard setIsFormModalOpen={setIsFormModalOpen} />
-          )}
+          <Button
+            onClick={e => {
+              e.preventDefault();
+              setToHome(true);
+            }}
+            color="inherit"
+          >
+            Back to main
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

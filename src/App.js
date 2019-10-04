@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Header from './components/Header/Header';
-import WelcomeSection from './components/WelcomeSection/WelcomeSection';
+// import WelcomeSection from './components/WelcomeSection/WelcomeSection';
 import QuizGallery from './components/QuizGallery/QuizGallery';
 import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
@@ -41,7 +41,6 @@ function App() {
         isUserLogedIn={isUserLogedIn}
         setIsFormModalOpen={setIsFormModalOpen}
       />
-      <WelcomeSection />
 
       <h3> Quizzes Galley </h3>
       {isQuizzesLoaded ? (
@@ -62,6 +61,7 @@ function App() {
       )}
 
       <Footer />
+
       {isFormModalOpen === 'register' && (
         <Modal>
           <Register setIsFormModalOpen={setIsFormModalOpen} />
